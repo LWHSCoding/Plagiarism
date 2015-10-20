@@ -8,11 +8,11 @@ PLEASE ADD/EDIT THIS
 -Web Crawling: Limited by internet speeds — perhaps there could be an offline trunk of essays from these sites to quickly scan through?
 *Substring Matching
 Crawl popular essay sites/ other sources online. 
->Quickly check substrings for copy/paste plagiarism. 
->Replace words in sentences with synonyms from the thesaurus and check for similarities. 
++Quickly check substrings for copy/paste plagiarism. 
++Replace words in sentences with synonyms from the thesaurus and check for similarities. 
 (While checking using the previous 2 methods, allow for not completely verbatim matching. I.e. if a few words are different, still raise a red flag) 
->Check for sentence structure differences - i.e. if the student took a sentence/idea and shifted around the words. This might be accomplished with identifying verb/noun/etc in the sentence and comparing. (what thing (noun) did what (verb) and how (adjective)).
->Bag of words - Compare word frequency of student’s essay to these essays (https://en.wikipedia.org/wiki/Bag-of-words_model - see the diagram at the top for a great explanation). We’ll probably have to use a library or api for this.
++Check for sentence structure differences - i.e. if the student took a sentence/idea and shifted around the words. This might be accomplished with identifying verb/noun/etc in the sentence and comparing. (what thing (noun) did what (verb) and how (adjective)).
++Bag of words - Compare word frequency of student’s essay to these essays (https://en.wikipedia.org/wiki/Bag-of-words_model - see the diagram at the top for a great explanation). We’ll probably have to use a library or api for this.
 
 -Profile Comparison (stylometry): Probably an SQL database and server will be required for this.
 Build a profile on each student throughout the year by storing their previous essays. Analyze these previous essays and compare it to the submitted one and check for inconsistencies in writing style/syntax/etc. 
