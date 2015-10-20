@@ -8,7 +8,7 @@ PLEASE ADD/EDIT THIS
 
 
 -Web Crawling: Limited by internet speeds — perhaps there could be an offline trunk of essays from these sites to quickly scan through?
-</br>*Substring Matching
+</br>Substring Matching
 Crawl popular essay sites/ other sources online. 
 </br>+Quickly check substrings for copy/paste plagiarism. 
 </br>+Replace words in sentences with synonyms from the thesaurus and check for similarities. 
@@ -19,7 +19,7 @@ Crawl popular essay sites/ other sources online.
 
 -Profile Comparison (stylometry): Probably an SQL database and server will be required for this.
 Build a profile on each student throughout the year by storing their previous essays. Analyze these previous essays and compare it to the submitted one and check for inconsistencies in writing style/syntax/etc. 
-</br>*Bag of words
+</br>Bag of words
 </br>Use word frequency to compare to student’s previous essays (https://en.wikipedia.org/wiki/Bag-of-words_model - see the diagram at the top for a great explanation). We’ll probably have to use a library or api for this.
 </br>*Markov chains
 </br>Build markov chains from student’s previous work. Run the new essay through the program, and rank the probability that the student would use each word (after the other/in context) based on their previous work. This is how autocorrect works. (https://en.wikipedia.org/wiki/Markov_chain and http://www.in-vacua.com/markov_text.html)
