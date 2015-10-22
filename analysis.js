@@ -1,3 +1,11 @@
+/*Goal of code --> 
+take a text string as input --> 
+cut out all crap words --> 
+run synonym dictionary through it --> 
+find the "key" words (think we can just do IBM Watson on this, we can dive into this though if we want to make it ourselves) --> 
+find which sentences have the "key" words --> 
+
+*/
 var words = "Steven Paul Jobs (/ˈdʒɒbz/; February 24, 1955 – October 5, 2011) was an American businessman. He was best known as the co-founder, chairman, and chief executive officer (CEO) of Apple Inc.; CEO and largest shareholder of Pixar Animation Studios;[3] a member of The Walt Disney Company's board of directors following its acquisition of Pixar; and founder, chairman, and CEO of NeXT Inc. Jobs is widely recognized as a pioneer of the microcomputer revolution of the 1970s, along with Apple co-founder Steve Wozniak. Shortly after his death, Jobs's official biographer, Walter Isaacson, described him as the 'creative entrepreneur whose passion for perfection and ferocious drive revolutionized six industries: personal computers, animated movies, music, phones, tablet computing, and digital publishing.'[2]"
 
 words = words.replace("the", "");
