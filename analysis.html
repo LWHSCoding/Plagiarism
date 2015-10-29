@@ -1,0 +1,95 @@
+<html>
+
+<head>
+    <script language="javascript" type="text/javascript" src="/analysis.js"></script>
+</head>
+
+<script>
+    function analysis() {
+
+        alert("we made it"); //Testing that the button worked. 
+
+        function word(word, value) {
+            this.word = word;
+            this.value = value;
+
+        }
+        //Creating an object to store my dictionary of words in. Will replace with a real dictionary later but didn't find anything good right now. 
+
+        var one = new word("Economy", 71);
+        var two = new word("America", 52);
+
+        //Added two test words to the string. 
+        document.getElementById("demo").innerHTML =
+            "Word 1:" + one.word + one.value + " Word Two:" + two.word + two.value;
+        //Am putting those words into the HTML so I can see the dictionary 
+
+        var words = "Here I am going to list a few important sentences. In these sentences I'm going to have important words. Steve Jobs is an important individual to the American economy. Some sentences are going to be more important than others. These sentences will have numbers: 24.22. "
+        //Sample String
+        words = words.replace("the", "");
+        words = words.replace("a", "");
+        words = words.replace("an", "");
+        words = words.replace("at", "");
+        words = words.replace("who", "");
+        words = words.replace("when", "");
+        words = words.replace("why", "");
+        words = words.replace("there", "");
+        words = words.replace("when", "");
+        words = words.replace("it", "");
+        words = words.replace("to", "");
+        words = words.replace("for", "");
+        words = words.replace("the", "");
+        words = words.replace("nor", "");
+        words = words.replace("or", "");
+        words = words.replace("but", "");
+        words = words.replace("yet", "");
+        words = words.replace("was", "");
+        words = words.replace("he", "");
+        words = words.replace("him", "");
+        words = words.replace("her", "");
+        words = words.replace("and", "");
+        words = words.replace("of", "");
+        words = words.replace("than", "");
+        words = words.replace("then", "");
+        words = words.replace("few", "");
+        words = words.replace("I", "");
+        words = words.replace("we", "");
+        words = words.replace("they", "");
+        words = words.replace("us", "");
+        words = words.replace("them", "");
+        words = words.replace("i'm", "");
+
+
+        sentences = words.replace(/([.?!])\s*(?=[A-Z])/, "$1|").split("|");
+        //My regex expression to break the words apart 
+        alert(sentences.length);
+
+        for (var i = 0; i < sentences.length; i++) {
+            alert(sentences[i]);
+            //Designed to sift through each sentence. Weird bug right now where it's only cutting one sentence.
+        }
+    }
+</script>
+
+<body>
+
+    <button onclick="analysis()">Hello </button>
+
+    <p id="demo"> </p>
+</body>
+<!--
+
+Sources looked through:
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
+http://stackoverflow.com/questions/7427731/why-this-javascript-regex-doesnt-work
+http://www.w3schools.com/js/js_object_definition.asp
+http://stackoverflow.com/questions/5069464/replace-multiple-strings-at-once
+http://www.w3schools.com/js/js_objects.asp
+http://stackoverflow.com/questions/6479013/i-need-a-regex-to-match-first-sentence-of-the-string
+http://stackoverflow.com/questions/21477717/how-to-call-a-js-function-using-onclick-event
+https://regex101.com/r/kG6fX5/1
+http://www.javascriptspellcheck.com/JavaScript_Spell_Check_Function_Demo
+
+-->
+
+</html>
