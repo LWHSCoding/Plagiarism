@@ -2,22 +2,68 @@
 
 <head>
     <script language="javascript" type="text/javascript" src="/analysis.js"></script>
+     <!-- Bootstrap Core CSS -->
+    <link href="http://ironsummitmedia.github.io/startbootstrap-stylish-portfolio/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="http://ironsummitmedia.github.io/startbootstrap-stylish-portfolio/css/stylish-portfolio.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="http://ironsummitmedia.github.io/startbootstrap-stylish-portfolio/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <title>Data Structure Example</title>
 </head>
 
 <script>
+    function readBlob(opt_startByte, opt_stopByte) {
+
+    var files = document.getElementById('files').files;
+    if (!files.length) {
+      alert('Please select a file!');
+      return;
+    }
+
+    var file = files[0];
+    var start = parseInt(opt_startByte) || 0;
+    var stop = parseInt(opt_stopByte) || file.size - 1;
+
+    var reader = new FileReader();
+
+    // If we use onloadend, we need to check the readyState.
+    reader.onloadend = function(evt) {
+      if (evt.target.readyState == FileReader.DONE) { // DONE == 2
+        document.getElementById('byte_content').textContent = evt.target.result;
+        document.getElementById('byte_range').textContent = 
+            ['Read bytes: ', start + 1, ' - ', stop + 1,
+             ' of ', file.size, ' byte file'].join('');
+      }
+    };
+
+    var blob = file.slice(start, stop + 1);
+    reader.readAsBinaryString(blob);
+  }
+  
+
     function analysis() {
 
-        alert("we made it"); //Testing that the button worked. 
+        //alert("we made it"); //Testing that the button worked. 
 
         function word(word, value) {
                 this.word = word;
                 this.value = value;
 
             }
+        
+      
+
             //Creating an object to store my dictionary of words in. Will replace with a real dictionary later but didn't find anything good right now. 
 
         var one = new word("Economy", .71);
         var two = new word("America", .52);
+        
+          for (var key in word) {
+            console.log("hi" + word[key]);
+        }
 
         //Added two test words to the string. 
         document.getElementById("demo").innerHTML =
@@ -25,69 +71,301 @@
         //Am putting those words into the HTML so I can see the dictionary 
 
         var words = "Here I am going to list a few important sentences. In these sentences I'm going to have important words. Steve Jobs is an important individual to the American economy. Some sentences are going to be more important than others. These sentences will have numbers: 24.22. "
-            //Sample String
-        words = words.replace(" the ", "");
-        words = words.replace(" a ", "");
-        words = words.replace(" an ", "");
-        words = words.replace(" at ", "");
-        words = words.replace(" who ", "");
-        words = words.replace(" when ", "");
-        words = words.replace(" why ", "");
-        words = words.replace(" there ", "");
-        words = words.replace(" these ", "");
-        words = words.replace(" when ", "");
-        words = words.replace(" it ", "");
-        words = words.replace(" to ", "");
-        words = words.replace(" for ", "");
-        words = words.replace(" the ", "");
-        words = words.replace(" nor ", "");
-        words = words.replace(" or ", "");
-        words = words.replace(" but ", "");
-        words = words.replace(" yet ", "");
-        words = words.replace(" was ", "");
-        words = words.replace(" he ", "");
-        words = words.replace(" him ", "");
-        words = words.replace(" her ", "");
-        words = words.replace(" and ", "");
-        words = words.replace(" of ", "");
-        words = words.replace(" than ", "");
-        words = words.replace(" then ", "");
-        words = words.replace(" few ", "");
-        words = words.replace(" I ", "");
-        words = words.replace(" we ", "");
-        words = words.replace(" they ", "");
-        words = words.replace(" us ", "");
-        words = words.replace(" them ", "");
-        words = words.replace(" i'm ", "");
-
-        sentences = words.replace(/([.?!])\s*(?=[A-Z])/, "$1|").split("|");
-
-        for (var i = 2; i < sentences.length; i++) {
-            temp = sentences[i - 1].replace(/([.?!])\s*(?=[A-Z])/, "$1|").split("|");
-            sentences.push(temp);
-            alert(sentences.length);
-            alert("hi");
-        }
-
+        
+        var savewords;
+        savewords = words;
+        //Create a new variable that saves the words so when we loop through them all again we have a fresh non-currupt string
+        
+        words = words.toLowerCase();
+        //Make everything lower case so the replace function doesn't miss anything
+            //Switched the word with a space, don't just delete
+        words = words.replace(" the ", " ");
+        words = words.replace(" a ", " ");
+        words = words.replace(" an ", " ");
+        words = words.replace(" at ", " ");
+        words = words.replace(" who ", " ");
+        words = words.replace(" when ", " ");
+        words = words.replace(" why ", " ");
+        words = words.replace(" there ", " ");
+        words = words.replace(" these ", " ");
+        words = words.replace(" when ", " ");
+        words = words.replace(" it ", " ");
+        words = words.replace(" to ", " ");
+        words = words.replace(" for ", " ");
+        words = words.replace(" the ", " ");
+        words = words.replace(" nor ", " ");
+        words = words.replace(" or ", " ");
+        words = words.replace(" but ", " ");
+        words = words.replace(" yet ", " ");
+        words = words.replace(" was ", " ");
+        words = words.replace(" he ", " ");
+        words = words.replace(" him ", " ");
+        words = words.replace(" her ", " ");
+        words = words.replace(" and ", " ");
+        words = words.replace(" of ", " ");
+        words = words.replace(" than ", " ");
+        words = words.replace(" then ", " ");
+        words = words.replace(" few ", " ");
+        words = words.replace(" we ", " ");
+        words = words.replace(" they ", " ");
+        words = words.replace(" us ", " ");
+        words = words.replace(" them ", " ");
+        words = words.replace(" i'm ", " ");
+        words = words.replace(" am ", " ");
+        words = words.replace(" to ", " ");
+        words = words.replace(" i ", " ");
+        //        sentences = words.replace(/([.?!])\s*(?=[A-Z])/, "$1|").split("|");
+        //
+        //           document.getElementById("demo").innerHTML =
+        //            sentences;
+        //        
+        //        for (var i = 2; i < sentences.length; i++) {
+        //            temp = sentences[i - 1].replace(/([.?!])\s*(?=[A-Z])/, "$1|").split("|");
+        //            sentences.push(temp);
+        //            alert(sentences.length);
+        //            alert("hi");
+        //        }
+        //
 
         //My regex expression to break the words apart 
 
-        document.getElementById("demo").innerHTML =
-            sentences;
+        var sentenceArray = [];
+        var splitSentences = function () {
 
-        for (var i = 0; i < sentences.length; i++) {
-            alert(sentences[i]);
-            //Designed to sift through each sentence. Weird bug right now where it's only cutting one sentence.
+            var pattern = /(.+?([A-Z].)[\.|\?](?:['")\\\s]?)+?\s?)/igm,
+                match;
+            var ol = document.getElementById("result");
+            while ((match = pattern.exec(words)) != null) {
+                if (match.index === pattern.lastIndex) {
+                    pattern.lastIndex++;
+                    
+                }
+                sentenceArray.push(li);
+                var li = document.createElement("li");
+                li.appendChild(document.createTextNode(match[0]));
+                ol.appendChild(li);
+                //li = document.getElementById("demo3");
+                console.log(match[0]);
+            }
+
+        }();
+        
+        var sentenceWords = [];
+        
+        for (var i = 0; i < sentenceArray.length; i++){
+            sentenceArray[i].replace("<li>", "");
+            console.log(sentenceArray[i]);
+            sentenceWords = sentenceArray[i].split(" ");
+            for (var j = 0; j < sentenceWords.length; j++){
+                
+               // if (sentenceWords[j] 
+            }
         }
+        
     }
 </script>
+<style>
+  #byte_content {
+    margin: 5px 0;
+    max-height: 100px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  #byte_range { margin-top: 5px; }
+     #hover {
+        background: transparent;
+        border: 2px solid #FF6600;
+        color:white;
+        border-radius:3px;
+    }
 
+    #hover:hover {
+        background-color: #FF6600;
+        color:white;
+    }
+</style>
 <body>
 
-    <button onclick="analysis()">Hello </button>
+     <!-- Navigation -->
+    <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
+    <nav id="sidebar-wrapper">
 
-    <p id="demo"> </p>
-    <p id="demo2"> </p>
+        <ul class="sidebar-nav">
+            <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
+            <li class="sidebar-brand">
+                <a href="#top" onclick=$ ( "#menu-close").click();>Upload</a>
+            </li>
+            <li>
+                <a href="#about" onclick=$ ( "#menu-close").click();>How it Works</a>
+            </li>
+           
+        </ul>
+    </nav>
+
+    <!-- Header -->
+    <header id="top" class="header" style="background-image:url('http://quillapp.io/MIT.png')">
+        <div class="text-vertical-center" style="padding-right:0px;">
+            <h1 style="color:#FF6600">Data</h1>
+            <h3 style="color:white;"> Demonstrates the basic  structure of a <br>score based sentence ranking system.</h3>
+            <br>
+            
+ <center>
+<input type="file" id="files" name="file" class="btn btn-default" /> Read bytes: 
+<span class="readBytesButtons">
+
+  <button class="btn btn-default">Analyze</button>
+</span>
+<div id="byte_content" style="color:white;">Text Will Show Here </div>
+            <!--<a href="/webHome.html" id="hover" class="btn btn-dark btn-lg">Start using!</a>-->
+     </center>
+   <button onclick="analysis()" id="hover" class="btn btn-dark btn-lg">Test It</button>
+
+    <ol id="result"  style="color:white; font-size:25px;">
+    </ol>
+
+    <p id="demo" style="color:white;"> </p>
+    <p id="demo2" style="color:white;"> </p>
+    <p id="demo3"  style="color:white;"> </p>
+    
+     </div>
+            
+    </header>
+
+    <!-- About -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>The Power of The Algorithm</h2>
+                    <p class="lead">This algorithm can be used for a veriety of purposed in computing. The first, is a plagerism detector. The algorithm can search essays and find the normal values and scores for a writers sentences. If someone plagerises a strong sentence (one that's sepcifically stronger than that of which they would normally write) the code would flag it as off. Another use would be search algorithms. If you were searching for sentences in a database it could pull out the highest rated sentences that contain your query. These are just a couple of the many uses these types of algorithms could be used for.  </p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>
+
+    <!-- Services -->
+    <!-- The circle icons use Font Awesome's stacked icon classes. For more information, visit http://fontawesome.io/examples/ -->
+    <section id="services" class="services bg-primary" style="background-color:#FF944D;">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-lg-10 col-lg-offset-1">
+                    <h2>How it Works</h2>
+                    <hr class="small">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6">
+                            <div class="service-item">
+                                <span class="fa-stack fa-4x">
+                                <img src="http://quillapp.io/introcamera.png" style="height:80px; width:80px;">
+                            </span>
+                                <h4>
+                                    <strong>Data</strong>
+                                </h4>
+                                <p>Start by giving the algorithm the needed data. From the user, all we need is the text to analyze. On the backend we import a synonym dictionary (find overlap and unify text corpus), we import a dictionary of most used words and lastly we import a dictionary of "Crap" words to cut out. </p>
+                                <!--<a href="#" class="btn btn-light">Learn More</a>-->
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="service-item">
+                                <span class="fa-stack fa-4x">
+                                <img src="http://quillapp.io/intronote.png" style="height:80px; width:80px;">
+                            </span>
+                                <h4>
+                                    <strong>Edit String</strong>
+                                </h4>
+                                <p>The algorithm then cuts the string accordingly to unify all string. The algorithm will first cut out all the useless words such as "a", "at", "of" etc. It will then run a synonym dictionary through all the words for easier comparison. . </p>
+                                <!--<a href="#" class="btn btn-light">Learn More</a>-->
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="service-item">
+                                <span class="fa-stack fa-4x">
+                                <img src="http://quillapp.io/thumbsup.png" style="height:80px; width:80px;">
+                            </span>
+                                <h4>
+                                    <strong>Break Apart </strong>
+                                </h4>
+                                <p>The algorithm then uses a regex expression to break the corpus into specific sentences that are easy to work with. It will also break apart the specific sentences into words for analysis.</p>
+                                <!--<a href="#" class="btn btn-light">Learn More</a>-->
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="service-item">
+                                <span class="fa-stack fa-4x">
+                                <img src="http://quillapp.io/charts.png" style="height:80px; width:80px;">
+                            </span>
+                                <h4>
+                                    <strong>Assigning Values</strong>
+                                </h4>
+                                <p>Lastly the algorithm compares the words in the sentence to the database, finds the summation of each sentence and displays those values.</p>
+                                <!--<a href="#" class="btn btn-light">Learn More</a>-->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.row (nested) -->
+                </div>
+                <!-- /.col-lg-10 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>
+
+
+    <!-- jQuery -->
+    <script src="http://ironsummitmedia.github.io/startbootstrap-stylish-portfolio/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="http://ironsummitmedia.github.io/startbootstrap-stylish-portfolio/js/bootstrap.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script>
+        // Closes the sidebar menu
+        $("#menu-close").click(function (e) {
+            e.preventDefault();
+            $("#sidebar-wrapper").toggleClass("active");
+        });
+
+        // Opens the sidebar menu
+        $("#menu-toggle").click(function (e) {
+            e.preventDefault();
+            $("#sidebar-wrapper").toggleClass("active");
+        });
+
+        // Scrolls to the selected menu item on the page
+        $(function () {
+            $('a[href*=#]:not([href=#])').click(function () {
+                if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+
+                    var target = $(this.hash);
+                    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                    if (target.length) {
+                        $('html,body').animate({
+                            scrollTop: target.offset().top
+                        }, 1000);
+                        return false;
+                    }
+                }
+            });
+        });
+    </script>
+    
+    
+    
+
+
+    <script>
+    document.querySelector('.readBytesButtons').addEventListener('click', function(evt) {
+    if (evt.target.tagName.toLowerCase() == 'button') {
+      var startByte = evt.target.getAttribute('data-startbyte');
+      var endByte = evt.target.getAttribute('data-endbyte');
+      readBlob(startByte, endByte);
+    }
+  }, false);
+    
+    
+</script>
 </body>
 <!--
 
@@ -101,6 +379,11 @@ http://stackoverflow.com/questions/6479013/i-need-a-regex-to-match-first-sentenc
 http://stackoverflow.com/questions/21477717/how-to-call-a-js-function-using-onclick-event
 https://regex101.com/r/kG6fX5/1
 http://www.javascriptspellcheck.com/JavaScript_Spell_Check_Function_Demo
+http://stackoverflow.com/questions/27630408/js-regex-to-split-text-into-sentences
+http://www.w3schools.com/jsref/jsref_tolowercase.asp
+http://stackoverflow.com/questions/558981/iterating-through-list-of-keys-for-associative-array-in-json
+http://www.html5rocks.com/en/tutorials/file/dndfiles/#toc-reading-files
+
 
 -->
 
