@@ -1,0 +1,118 @@
+the                  |  67,676.4995  1.0       1 |    incl.    |    incl.
+
+of                   |  38,677.2789  0.9       2 |    incl.    |    incl.
+
+and                  |  30,699.9944  1.0       3 |    incl.    |    incl.
+
+to                   |  26,375.2081  1.0       4 |    incl.    |    incl.
+
+in                   |  22,496.8363  0.9       5 |    ****    |    ****
+
+a                    |  20,880.1571  1.0       6 |    incl.    |    incl.
+
+that                 |  11,365.4463  1.1       7 |    incl.    |    incl.
+
+is                   |  11,118.9475  0.9       8 |    incl.    |    incl.
+
+for                  |   9,112.7260  1.0       9 |    incl.    |    incl.
+
+it                   |   7,749.3433  1.1      10 |    incl.    |    incl.
+
+as                   |   7,715.9321  1.0      11 |    incl.    |    incl.
+
+was                  |   7,449.9212  1.1      12 |    incl.    |    incl.
+
+with                 |   7,065.8107  1.0      13 |    incl.    |    incl.
+
+I                    |   6,749.6346  1.3      14 |    incl.    |    incl.
+  in                 |      3.3x     0.9       5 |    incl.    |    incl.
+  a                  |      3.1x     1.0       6 |    incl.    |    incl.
+  is                 |      1.6x     0.9       8 |    incl.    |    incl.
+  it                 |      1.1x     1.1      10 |    incl.    |    incl.
+
+not                  |   6,563.6248  1.1      15 |    incl.    |    incl.
+
+on                   |   6,294.5676  1.0      16 |    incl.    |    incl.
+
+be                   |   6,054.3772  1.0      17 |    incl.    |    incl.
+
+he                   |   5,920.8469  1.2      18 |    incl.    |    incl.
+  her                |      0.5x     1.3      34 |    incl.    |    incl.
+
+by                   |   5,785.8024  0.9      19 |    incl.    |    incl.
+
+are                  |   5,102.0398  0.9      20 |    incl.    |    incl.
+
+this                 |   4,998.1060  1.0      21 |    incl.    |    incl.
+
+or                   |   4,868.6559  1.0      22 |    incl.    |    incl.
+
+his                  |   4,836.0475  1.2      23 |    incl.    |    incl.
+
+you                  |   4,631.9328  1.3      24 |    incl.    |    incl.
+
+from                 |   4,482.5701  1.0      25 |    incl.    |    incl.
+
+at                   |   4,474.3861  1.0      26 |    incl.    |    incl.
+
+have                 |   3,775.9675  1.1      27 |    incl.    |    incl.
+
+an                   |   3,767.9237  1.0      28 |    incl.    |    incl.
+  and                |      8.1x     1.0       3 |    incl.    |    incl.
+
+but                  |   3,724.2037  1.1      29 |    incl.    |    incl.
+
+had                  |   3,649.2688  1.2      30 |    incl.    |    incl.
+
+they                 |   3,419.2866  1.1      31 |    incl.    |    incl.
+
+which                |   3,260.1894  1.0      32 |    incl.    |    incl.
+
+we                   |   3,039.8911  1.2      33 |    incl.    |    incl.
+
+her                  |   2,999.8347  1.3      34 |    incl.    |    incl.
+
+their                |   2,848.7213  1.1      35 |    incl.    |    incl.
+
+were                 |   2,840.3532  1.0      36 |    incl.    |    incl.
+
+all                  |   2,751.3304  1.1      37 |    incl.    |    incl.
+
+she                  |   2,670.5572  1.3      38 |    incl.    |    incl.
+
+can                  |   2,510.3777  1.0      39 |    incl.    |    incl.
+
+if                   |   2,203.7905  1.1      40 |    incl.    |    incl.
+
+there                |   2,170.6612  1.1      41 |    incl.    |    incl.
+
+when                 |   2,152.7479  1.1      42 |    incl.    |    incl.
+
+has                  |   2,109.4815  0.9      43 |    incl.    |    incl.
+
+more                 |   2,080.1285  1.0      44 |    incl.    |    incl.
+
+would                |   2,073.0826  1.1      45 |    incl.    |    incl.
+
+will                 |   2,026.7891  1.1      46 |    incl.    |    incl.
+
+so                   |   2,011.0768  1.2      47 |    incl.    |    incl.
+
+my                   |   1,992.1151  1.5      48 |    incl.    |    incl.
+  may                |      0.8x     0.9      61 |    incl.    |    incl.
+
+what                 |   1,991.8100  1.2      49 |    incl.    |    incl.
+
+who                  |   1,984.3904  1.1      50 |    incl.    |    incl.
+
+been                 |   1,940.4864  1.0      51 |    incl.    |    incl.
+
+do                   |   1,880.6016  1.2      52 |    incl.    |    incl.
+
+other                |   1,845.1241  1.0      53 |    incl.    |    incl.
+
+him                  |   1,773.0122  1.4      54 |    incl.    |    incl.
+
+these                |   1,714.1770  0.9      55 |    incl.    |    incl.
+  those              |      0.5x     1.0      97 |    incl.    |    incl.
+

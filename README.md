@@ -20,7 +20,10 @@ Plagiarism detector for Lick
 </ul>
 
 <hr />
-
+<b> Reading Documents</b>
+<i>Sam</i>
+We should use these two scripts to read word and PDF docs, currently we just read the binary's.
+<br />
 <b>Writing Grade Level</b>
 <i>Kevin</i>
 The Flesch-Kincaid method is probably the most convenient. It's what the US military uses as a standard writing assessment. The Flesch readability test is good and I think we should definitely use it.
