@@ -1,14 +1,15 @@
 <html>
 
 <head>
-    <script language="javascript" type="text/javascript" src="/analysis copy.js"></script>
-    <script src="Chart.js"></script>
+    <script language="javascript" type="text/javascript" src="analysis copy.js"></script>
+    <script src="/Chart.js-master/Chart.js"></script>
+    <script src="dictionary_Static.json"></script>
      <!-- Bootstrap Core CSS -->
     <link href="http://ironsummitmedia.github.io/startbootstrap-stylish-portfolio/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="http://ironsummitmedia.github.io/startbootstrap-stylish-portfolio/css/stylish-portfolio.css" rel="stylesheet">
-
+    
     <!-- Custom Fonts -->
     <link href="http://ironsummitmedia.github.io/startbootstrap-stylish-portfolio/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
@@ -46,7 +47,10 @@
     
    <button onclick="analysis()" id="hover" class="btn btn-dark btn-lg">Test It</button>
         
-    <canvas id="myChart" width="400" height="400"></canvas>
-            
+    <div style="width:30%">
+			<div>
+				<canvas id="canvas" height="450" width="600"></canvas>
+			</div>
+		</div>
     </body>
 </html>

@@ -20,6 +20,17 @@ Plagiarism detector for Lick
 </ul>
 
 <hr />
+<b>Sam Graphing data</b>
+define what a rare word is like less than 80 uses
+Calcutlate how many words per 50 word chunk are rare 
+Graph
+
+Use caulman lau formula and run it on 50 word chunks.
+Graph
+
+Flag chuncks that are outliers high or low, 
+display
+
 <b> Reading Documents</b>
 <i>Sam</i>
 We should use these two scripts to read word and PDF docs, currently we just read the binary's.

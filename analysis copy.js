@@ -6,16 +6,17 @@ find the "key" words (think we can just do IBM Watson on this, we can dive into 
 find which sentences have the "key" words --> 
 
 */
-  function analysis() {
+
+
+
+  
 
         //alert("we made it"); //Testing that the button worked. 
 
-        function word(word, value) {
-                this.word = word;
-                this.value = value;
-
-            }
+    
       console.log("Analysis");
+//var dict;
+//var dict = JSON.parse(data);
       var dict = {"the":674995,
 "of":382789,
 "and":309944,
@@ -73,27 +74,15 @@ find which sentences have the "key" words -->
       for (var i = 0; i < wordArray.length; i++) {
     var num = dict[wordArray[i]];
           
-          if(num!=undefined){
+          if(num!=undefined && num <30000){
           data.push(num);
-              labels.push(i+1);
+              labels.push(wordArray[i]);
           }
-          console.log(data);
+          
+//          console.log(data);
     //Do something
 }
-//      var chartData = { labels: labels, datasets:[
-//        {
-//            label: "My First dataset",
-//            fillColor: "rgba(220,220,220,0.2)",
-//            strokeColor: "rgba(220,220,220,1)",
-//            pointColor: "rgba(220,220,220,1)",
-//            pointStrokeColor: "#fff",
-//            pointHighlightFill: "#fff",
-//            pointHighlightStroke: "rgba(220,220,220,1)",
-//            data:data
-//        }]};
-      var data = {
-    labels: labels,
-    datasets: [
+      var chartData = { labels: labels, datasets:[
         {
             label: "My First dataset",
             fillColor: "rgba(220,220,220,0.2)",
@@ -102,27 +91,18 @@ find which sentences have the "key" words -->
             pointStrokeColor: "#fff",
             pointHighlightFill: "#fff",
             pointHighlightStroke: "rgba(220,220,220,1)",
-            data: data
-        },
-        {
-            label: "My Second dataset",
-            fillColor: "rgba(151,187,205,0.2)",
-            strokeColor: "rgba(151,187,205,1)",
-            pointColor: "rgba(151,187,205,1)",
-            pointStrokeColor: "#fff",
-            pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(151,187,205,1)",
-            data: data
-        }
-    ]
-};
-var ctx = document.getElementById("myChart").getContext("2d");
-var myNewChart = new Chart(ctx).PolarArea(data);
-      console.log("Worked CHart generated");//Testing that the button worked. 
-        
+            data:data
+        }]};
+
+     window.onload = function(){
+		var ctx = document.getElementById("canvas").getContext("2d");
+		window.myLine = new Chart(ctx).Line(chartData, {
+			responsive: true
+		});
+	}
         //Added two test words to the string. 
         //Am putting those words into the HTML so I can see the dictionary 
 
 
         
-    }
+    
