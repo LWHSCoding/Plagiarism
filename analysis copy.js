@@ -15,57 +15,9 @@ find which sentences have the "key" words -->
 
     
       console.log("Analysis");
-//var dict;
-//var dict = JSON.parse(data);
-      var dict = {"the":674995,
-"of":382789,
-"and":309944,
-"to":262081,
-"in":228363,
-"a":201571,
-"that":114463,
-"is":119475,
-"for":97260,
-"it":73433,
-"as":79321,
-"was":79212,
-"with":78107,
-"i":66346,
-"in":33,
-"a":31,
-"is":16,
-"it":11,
-"not":66248,
-"on":65676,
-"be":63772,
-"he":58469,
-"her":05,
-"by":58024,
-"are":5398,
-"this":41060,
-"or":46559,
-"his":4475,
-"you":49328,
-"from":45701,
-"at":43861,
-"have":39675,
-"an":39237,
-"and":81,
-"but":32037,
-"had":32688,
-"they":32866,
-"which":31894,
-"we":38911,
-"her":28347,
-"their":27213,
-"were":23532,
-"all":23304,
-"she":25572,
-"can":23777,
-"if":27905,
-"there":26612,
-"when":27479,
-"has":24815};
+
+var file = require('file.json');
+var dict = JSON.parse(file);
       var words = "Here I am going to list a few important sentences. In these sentences I'm going to have important words. Steve Jobs is an important individual to the American economy. Some sentences are going to be more important than others. These sentences will have numbers: 24.22. ";
       var data=[];
       var labels=[];

@@ -16,7 +16,7 @@ bar =Suppress(Literal("|"))
 
 line = word + bar + complexNum + Suppress(restOfLine)
 line2 = word + bar + complexNum+Literal("x") + Suppress(complexNum + complexNum + bar + word + period + bar + word + period)
-full = OneOrMore(Group(line("Type1") | Suppress(line2("Type2"))))
+full = OneOrMore(Group(Suppress(line2("Type2"))|line("Type1") ))
 list =full.parseString(scowlString)
 last_Term = 0
 string = ""
