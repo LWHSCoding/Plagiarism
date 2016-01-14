@@ -2,7 +2,7 @@
 
 <head>
     <script language="javascript" type="text/javascript" src="/analysis.js"></script>
-     <!-- Bootstrap Core CSS -->
+    <!-- Bootstrap Core CSS -->
     <link href="http://ironsummitmedia.github.io/startbootstrap-stylish-portfolio/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
@@ -12,37 +12,52 @@
     <link href="http://ironsummitmedia.github.io/startbootstrap-stylish-portfolio/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
     <title>Data Structure Example</title>
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+    <script type="text/javascript">
+        var data = {
+            "words": [{
+                "word": "GGGG",
+                "num": 100000
+  }]
+        }
+
+        $.getJSON("Dictionary.json", function (data) {
+            console.log(data);
+            $('body').append(data.words[0].firstName);
+        });
+    </script>
+
 </head>
 
 <script>
     function readBlob(opt_startByte, opt_stopByte) {
 
-    var files = document.getElementById('files').files;
-    if (!files.length) {
-      alert('Please select a file!');
-      return;
+        var files = document.getElementById('files').files;
+        if (!files.length) {
+            alert('Please select a file!');
+            return;
+        }
+
+        var file = files[0];
+        var start = parseInt(opt_startByte) || 0;
+        var stop = parseInt(opt_stopByte) || file.size - 1;
+
+        var reader = new FileReader();
+
+        // If we use onloadend, we need to check the readyState.
+        reader.onloadend = function (evt) {
+            if (evt.target.readyState == FileReader.DONE) { // DONE == 2
+                document.getElementById('byte_content').textContent = evt.target.result;
+                document.getElementById('byte_range').textContent = ['Read bytes: ', start + 1, ' - ', stop + 1,
+             ' of ', file.size, ' byte file'].join('');
+            }
+        };
+
+        var blob = file.slice(start, stop + 1);
+        reader.readAsBinaryString(blob);
     }
 
-    var file = files[0];
-    var start = parseInt(opt_startByte) || 0;
-    var stop = parseInt(opt_stopByte) || file.size - 1;
-
-    var reader = new FileReader();
-
-    // If we use onloadend, we need to check the readyState.
-    reader.onloadend = function(evt) {
-      if (evt.target.readyState == FileReader.DONE) { // DONE == 2
-        document.getElementById('byte_content').textContent = evt.target.result;
-        document.getElementById('byte_range').textContent = 
-            ['Read bytes: ', start + 1, ' - ', stop + 1,
-             ' of ', file.size, ' byte file'].join('');
-      }
-    };
-
-    var blob = file.slice(start, stop + 1);
-    reader.readAsBinaryString(blob);
-  }
-  
 
     function analysis() {
 
@@ -53,15 +68,15 @@
                 this.value = value;
 
             }
-        
-      
+            //The graph https://www.desmos.com/calculator/1wsl0i6fyv is used to convert the amount of times a word is mentioned in the english language to a numerical score we can use in the algorithm. 
 
-            //Creating an object to store my dictionary of words in. Will replace with a real dictionary later but didn't find anything good right now. 
+
+        //Creating an object to store my dictionary of words in. Will replace with a real dictionary later but didn't find anything good right now. 
 
         var one = new word("Economy", .71);
         var two = new word("America", .52);
-        
-          for (var key in word) {
+
+        for (var key in word) {
             console.log("hi" + word[key]);
         }
 
@@ -71,14 +86,14 @@
         //Am putting those words into the HTML so I can see the dictionary 
 
         var words = "Here I am going to list a few important sentences. In these sentences I'm going to have important words. Steve Jobs is an important individual to the American economy. Some sentences are going to be more important than others. These sentences will have numbers: 24.22. "
-        
+
         var savewords;
         savewords = words;
         //Create a new variable that saves the words so when we loop through them all again we have a fresh non-currupt string
-        
+
         words = words.toLowerCase();
         //Make everything lower case so the replace function doesn't miss anything
-            //Switched the word with a space, don't just delete
+        //Switched the word with a space, don't just delete
         words = words.replace(" the ", " ");
         words = words.replace(" a ", " ");
         words = words.replace(" an ", " ");
@@ -138,7 +153,7 @@
             while ((match = pattern.exec(words)) != null) {
                 if (match.index === pattern.lastIndex) {
                     pattern.lastIndex++;
-                    
+
                 }
                 sentenceArray.push(li);
                 var li = document.createElement("li");
@@ -149,44 +164,49 @@
             }
 
         }();
-        
+
         var sentenceWords = [];
-        
-        for (var i = 0; i < sentenceArray.length; i++){
+
+        for (var i = 0; i < sentenceArray.length; i++) {
             sentenceArray[i].replace("<li>", "");
             console.log(sentenceArray[i]);
             sentenceWords = sentenceArray[i].split(" ");
-            for (var j = 0; j < sentenceWords.length; j++){
-                
-               // if (sentenceWords[j] 
+            for (var j = 0; j < sentenceWords.length; j++) {
+
+                // if (sentenceWords[j] 
             }
         }
-        
+
     }
 </script>
 <style>
-  #byte_content {
-    margin: 5px 0;
-    max-height: 100px;
-    overflow-y: auto;
-    overflow-x: hidden;
-  }
-  #byte_range { margin-top: 5px; }
-     #hover {
+    #byte_content {
+        margin: 5px 0;
+        max-height: 100px;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+    
+    #byte_range {
+        margin-top: 5px;
+    }
+    
+    #hover {
         background: transparent;
         border: 2px solid #FF6600;
-        color:white;
-        border-radius:3px;
+        color: white;
+        border-radius: 3px;
     }
-
+    
     #hover:hover {
         background-color: #FF6600;
-        color:white;
+        color: white;
     }
 </style>
+
 <body>
 
-     <!-- Navigation -->
+    <!-- Navigation -->
     <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
     <nav id="sidebar-wrapper">
 
@@ -198,7 +218,7 @@
             <li>
                 <a href="#about" onclick=$ ( "#menu-close").click();>How it Works</a>
             </li>
-           
+
         </ul>
     </nav>
 
@@ -208,27 +228,27 @@
             <h1 style="color:#FF6600">Data</h1>
             <h3 style="color:white;"> Demonstrates the basic  structure of a <br>score based sentence ranking system.</h3>
             <br>
-            
- <center>
-<input type="file" id="files" name="file" class="btn btn-default" /> Read bytes: 
-<span class="readBytesButtons">
+
+            <center>
+                <input type="file" id="files" name="file" class="btn btn-default" /> Read bytes:
+                <span class="readBytesButtons">
 
   <button class="btn btn-default">Analyze</button>
 </span>
-<div id="byte_content" style="color:white;">Text Will Show Here </div>
-            <!--<a href="/webHome.html" id="hover" class="btn btn-dark btn-lg">Start using!</a>-->
-     </center>
-   <button onclick="analysis()" id="hover" class="btn btn-dark btn-lg">Test It</button>
+                <div id="byte_content" style="color:white;">Text Will Show Here </div>
+                <!--<a href="/webHome.html" id="hover" class="btn btn-dark btn-lg">Start using!</a>-->
+            </center>
+            <button onclick="analysis()" id="hover" class="btn btn-dark btn-lg">Test It</button>
 
-    <ol id="result"  style="color:white; font-size:25px;">
-    </ol>
+            <ol id="result" style="color:white; font-size:25px;">
+            </ol>
 
-    <p id="demo" style="color:white;"> </p>
-    <p id="demo2" style="color:white;"> </p>
-    <p id="demo3"  style="color:white;"> </p>
-    
-     </div>
-            
+            <p id="demo" style="color:white;"> </p>
+            <p id="demo2" style="color:white;"> </p>
+            <p id="demo3" style="color:white;"> </p>
+
+        </div>
+
     </header>
 
     <!-- About -->
@@ -237,7 +257,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2>The Power of The Algorithm</h2>
-                    <p class="lead">This algorithm can be used for a veriety of purposed in computing. The first, is a plagerism detector. The algorithm can search essays and find the normal values and scores for a writers sentences. If someone plagerises a strong sentence (one that's sepcifically stronger than that of which they would normally write) the code would flag it as off. Another use would be search algorithms. If you were searching for sentences in a database it could pull out the highest rated sentences that contain your query. These are just a couple of the many uses these types of algorithms could be used for.  </p>
+                    <p class="lead">This algorithm can be used for a veriety of purposed in computing. The first, is a plagerism detector. The algorithm can search essays and find the normal values and scores for a writers sentences. If someone plagerises a strong sentence (one that's sepcifically stronger than that of which they would normally write) the code would flag it as off. Another use would be search algorithms. If you were searching for sentences in a database it could pull out the highest rated sentences that contain your query. These are just a couple of the many uses these types of algorithms could be used for. </p>
                 </div>
             </div>
             <!-- /.row -->
@@ -350,22 +370,20 @@
             });
         });
     </script>
-    
-    
-    
+
+
+
 
 
     <script>
-    document.querySelector('.readBytesButtons').addEventListener('click', function(evt) {
-    if (evt.target.tagName.toLowerCase() == 'button') {
-      var startByte = evt.target.getAttribute('data-startbyte');
-      var endByte = evt.target.getAttribute('data-endbyte');
-      readBlob(startByte, endByte);
-    }
-  }, false);
-    
-    
-</script>
+        document.querySelector('.readBytesButtons').addEventListener('click', function (evt) {
+            if (evt.target.tagName.toLowerCase() == 'button') {
+                var startByte = evt.target.getAttribute('data-startbyte');
+                var endByte = evt.target.getAttribute('data-endbyte');
+                readBlob(startByte, endByte);
+            }
+        }, false);
+    </script>
 </body>
 <!--
 
